@@ -22,17 +22,16 @@ class UsersController extends Controller
     return view('users.add_user');
     }
 
-    public function getUser($name){
-        return view('users.get_user', compact('name'
-    ));
+    public function getUser($id){
+        $ourUser = DB::table('users')->where('id', $id)->first();
+        return view('users.get_user', compact(
+            'ourUser'
+        ));
         }
 
      protected function getUsers (){
         $users = DB::table('users')
         ->get();
-
-
-
         return $users;
      }
 

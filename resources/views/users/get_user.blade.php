@@ -5,11 +5,10 @@
 
 @section('content')
 
-        <li>Get user
-             </li>
+        <li>Get user </li>
 
 
 
-   <h1>{{$name}}</h1>
+   <h1>{{$ourUser->name}}</h1>
 @endsection
 

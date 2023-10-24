@@ -65,7 +65,17 @@
         </div>
       </nav>
 
-@yield('content')
+ <!-- .Start Navbar -->
+
+ <div class="container">
+    <!-- Start title -->
+    @yield('title')
+    <!-- .Start title -->
+
+    <!-- Start content -->
+    @yield('content')
+    <!-- .Start content -->
+    </div>
 
 
 
