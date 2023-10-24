@@ -1,33 +1,32 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\UsersController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+// Pagina de login para o Laravel
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+// dentro da @php dd($variavel)@endphp para ver o erro
 
-Route::get('/add-user', function () {
-    return view('users.add_user');
-})->name('user.add');
+// Dashboards
 
-Route::get('/all-users', function () {
-    return view('users.all_users');
-})->name('user.all');
+Route::get('/home', [IndexController::class, 'index'])->name('home');
+
+// Controllers de users
+
+Route::get('/add-user', [UsersController::class, 'AddUser'])->name('user.add');
+Route::get('/all-users', [UsersController::class, 'allUsers'])->name('user.all');
+
+// controllers de users / Get users
+
+Route::get('/get-user/{name}', [UsersController::class, 'getUser'])->name('user.get');
+
+
+// Providers
 
 Route::get('/add-provider', function () {
     return view('add.provider');
@@ -37,6 +36,9 @@ Route::get('/all-provider', function () {
     return view('all.provider');
 })->name('provider.all');
 
+
+// Produtos
+
 Route::get('/add-product', function () {
     return view('add.product');
 })->name('product.add');
@@ -44,6 +46,8 @@ Route::get('/add-product', function () {
 Route::get('/all-product', function () {
     return view('all.product');
 })->name('product.all');
+
+// clientes
 
 Route::get('/add-client', function () {
     return view('add.client');
@@ -53,9 +57,15 @@ Route::get('/all-client', function () {
     return view('all.client');
 })->name('client.all');
 
+
+// Stock
+
 Route::get('/inventory', function () {
     return view('inventory');
 })->name('inventory');
+
+
+// fazer compras e ver compras
 
 Route::get('/add-purchase', function () {
     return view('add.purchase');
@@ -64,6 +74,8 @@ Route::get('/add-purchase', function () {
 Route::get('/all-purchase', function () {
     return view('all.purchase');
 })->name('purchase.all');
+
+// Erro da página que não existe
 
 Route::fallback(function(){
     return '<h1>Erro no route da página</h1>';

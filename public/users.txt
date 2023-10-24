@@ -1,0 +1,32 @@
+Illuminate\Support\Collection Object
+(
+    [items:protected] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [name] => Jacinto
+                    [email] => jacinto@gmail.com
+                    [email_verified_at] => 2023-10-30 23:19:58
+                    [password] => Password
+                    [remember_token] => Password
+                    [created_at] => 
+                    [updated_at] => 
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 2
+                    [name] => Lucia
+                    [email] => luciana@lil.com
+                    [email_verified_at] => 
+                    [password] => Pass
+                    [remember_token] => 
+                    [created_at] => 
+                    [updated_at] => 
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+)

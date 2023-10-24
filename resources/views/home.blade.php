@@ -2,13 +2,14 @@
 
 @section('content')
 
+
+
+    <h3>Informação da empresa</h3>
+
     <ul>
-        <a href="{{ route('user.add') }}">
-            <li>Adicionar Utilizadores</li>
-        </a>
-        <a href="{{ route('user.all') }}">
-            <li>Todos os Utilizadores</li>
-        </a>
+        <li>Nome: {{ $info['name'] }}</li>
+        <li>Morada: {{ $info['address'] }}</li>
+        <li>Email: {{ $info['email'] }}</li>
     </ul>
 
 @endsection
