@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\ProductController;
 
 // Pagina de login para o Laravel
 
@@ -14,49 +16,35 @@ Route::get('/', function () {
 
 // Dashboards
 
-Route::get('/home', [IndexController::class, 'index'])->name('home');
+Route::get('/', [IndexController::class, 'index'])->name('home');
 
-// Controllers de users
+// Controllers de clientes
 
 Route::get('/add-user', [UsersController::class, 'AddUser'])->name('user.add');
 Route::get('/all-users', [UsersController::class, 'allUsers'])->name('user.all');
 
 // controllers de users / Get users
 
-Route::get('/get-user/{name}', [UsersController::class, 'getUser'])->name('user.get');
+Route::get('/get-user/{id}', [UsersController::class, 'getUser'])->name('user.get');
 
 
 // Providers
-
-Route::get('/add-provider', function () {
-    return view('add.provider');
-})->name('provider.add');
-
-Route::get('/all-provider', function () {
-    return view('all.provider');
-})->name('provider.all');
+Route::get('/add-provider', [ProviderController::class, 'AddProvider'])->name('provider.add');
+Route::get('/all-provider', [ProviderController::class, 'AllProvider'])->name('provider.all');
+Route::get('/get-Provider/{id}', [ProviderController::class, 'GetProvider'])->name('provider.get');
 
 
 // Produtos
 
-Route::get('/add-product', function () {
-    return view('add.product');
-})->name('product.add');
+Route::get('/add-product', [ProductController::class, 'AddProduct'])->name('product.add');
+Route::get('/all-product', [ProductController::class, 'allProduct'])->name('product.all');
+Route::get('/get-product/{id}', [ProductController::class, 'GetProduct'])->name('product.get');
 
-Route::get('/all-product', function () {
-    return view('all.product');
-})->name('product.all');
+//continue.................
+//.................................
 
-// clientes
 
-Route::get('/add-client', function () {
-    return view('add.client');
-})->name('client.add');
-
-Route::get('/all-client', function () {
-    return view('all.client');
-})->name('client.all');
-
+// Produtos
 
 // Stock
 

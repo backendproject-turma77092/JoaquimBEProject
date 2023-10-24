@@ -26,16 +26,15 @@
             <div class="navbar-nav">
 
 
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Users
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{{ route('user.add') }}">Add user</a></li>
-                  <li><a class="dropdown-item" href="{{ route('user.all') }}">All users</a></li>
-                </ul>
-              </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Providers
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{{ route('provider.add') }}">Add Provider</a></li>
+                      <li><a class="dropdown-item" href="{{ route('provider.all') }}">all Provider</a></li>
+                    </ul>
+                  </li>
 
 
               <li class="nav-item dropdown">
@@ -43,21 +42,24 @@
                   Products
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Add Product</a></li>
-                  <li><a class="dropdown-item" href="#">All Products</a></li>
+                    <li><a class="dropdown-item" href="{{ route('product.add') }}">Add Product</a></li>
+                    <li><a class="dropdown-item" href="{{ route('product.all') }}">all Product</a></li>
                 </ul>
               </li>
+
+
 
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Providers
+                  Customers
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Add Provider</a></li>
-                  <li><a class="dropdown-item" href="#">All Providers</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.add') }}">Add user</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.all') }}">All users</a></li>
                 </ul>
               </li>
+
 
 
             </div>

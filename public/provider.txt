@@ -1,0 +1,18 @@
+Illuminate\Support\Collection Object
+(
+    [items:protected] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 1
+                    [name] => nestle
+                    [description] => chocolates
+                    [phone] => 934053442
+                    [created_at] => 
+                    [updated_at] => 
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+)
