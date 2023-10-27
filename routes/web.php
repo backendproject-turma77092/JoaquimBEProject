@@ -22,7 +22,8 @@ Route::get('/', [IndexController::class, 'index'])->name('home');
 
 Route::get('/add-user', [UsersController::class, 'AddUser'])->name('user.add');
 Route::get('/all-users', [UsersController::class, 'allUsers'])->name('user.all');
-
+Route::get('/delete-user/{id}', [UsersController::class, 'deleteUser'])->name('user.delete');
+Route::post('/create-user', [UsersController::class, 'createUser'])->name('user.create');
 // controllers de users / Get users
 
 Route::get('/get-user/{id}', [UsersController::class, 'getUser'])->name('user.get');
@@ -32,6 +33,8 @@ Route::get('/get-user/{id}', [UsersController::class, 'getUser'])->name('user.ge
 Route::get('/add-provider', [ProviderController::class, 'AddProvider'])->name('provider.add');
 Route::get('/all-provider', [ProviderController::class, 'AllProvider'])->name('provider.all');
 Route::get('/get-Provider/{id}', [ProviderController::class, 'GetProvider'])->name('provider.get');
+Route::post('/create-provider', [ProviderController::class, 'createProvider'])->name('provider.create');
+
 
 
 // Produtos

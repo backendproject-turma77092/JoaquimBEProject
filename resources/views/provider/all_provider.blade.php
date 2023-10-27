@@ -14,7 +14,7 @@
         @foreach ($provider as $item)
         <tr>
             <th scope="row">{{ $item->id }}</th>
-            <td>{{ $item->name }}</td>
+            <td></td>
             <td>{{ $item->phone }}</td>
             <td>{{ $item->description }}</td>
             <td><a href="{{ route('provider.get', $item->id) }}" class="btn btn-info">Ver</a></td>

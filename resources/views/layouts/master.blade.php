@@ -55,8 +55,8 @@
                   Customers
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{{ route('user.add') }}">Add user</a></li>
-                  <li><a class="dropdown-item" href="{{ route('user.all') }}">All users</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.add') }}">Add customer</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.all') }}">All customers</a></li>
                 </ul>
               </li>
 

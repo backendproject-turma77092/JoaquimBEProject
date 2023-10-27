@@ -1,0 +1,8 @@
+Array
+(
+    [_token] => GYqeecV7nCrBJtPys63wkxiE2Hkhle73ZmQ5yKmT
+    [name] => asd
+    [email] => asd@gmail.com
+    [password] => asd
+    [password_confirmation] => asd
+)

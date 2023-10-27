@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 
 class ProductController extends Controller
 {
@@ -32,6 +34,46 @@ class ProductController extends Controller
         }
 
 
+            public function createUser(Request $request){
+
+                if(isset($request->id)){
+                    $request->validate([
+                        'name' => 'required|string',
+                    ]);
+
+                    Product::where('id', $request->id)
+                        ->update([
+                        'name' => $request->name,
+                    ]);
+
+
+                    return redirect()->route('product.all')->with('atualizacao_message','Utilizador atualizado');
+
+                }else{
+                    $request->validate([
+                        'name' => 'string',
+                        'description' => 'required|email|unique:users',
+                        'phone' => 'required|string',
+
+                    ]);
+
+
+
+                    product::insert([
+                        'name' => $request->name,
+                        'descroption' => $request->description,
+                        'phone' => $request->phone,
+
+                    ]);
+
+
+
+
+                    return redirect()->route('product.all')->with('message','User updated!');
+                }
+
+
+            }
 
 
     protected function getProducts (){
@@ -40,8 +82,8 @@ class ProductController extends Controller
         ->select('product.*', 'provider.name as usname')
         ->get();
 
-        file_put_contents("providers.txt", print_r($product, true));
         return $product;
      }
 
 }
+
