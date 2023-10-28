@@ -10,6 +10,8 @@
     <input type="hidden" name="id" value="{{ $ourProduct->id }}">
 
         @csrf
+
+        <div class="container">
         <input type="hidden" name="id" value="{{ $ourProduct->id }}" id="">
 
 
@@ -63,4 +65,5 @@
         </div>
         <button class="btn btn-primary" type="submit">Submeter</button>
     </form>
+</div>
 @endsection

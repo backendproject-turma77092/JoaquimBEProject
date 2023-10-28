@@ -2,15 +2,15 @@
 
 @section('content')
 <div class="container">
-    <h1>All Products</h1>
-
-
 
     </form>
 <table class="table">
     <thead>
       <tr>
         <th scope="col">Id</th>
+    <h1>All Products</h1>
+
+
         <th scope="col">Nome</th>
         <th scope="col">preço</th>
         <th scope="col">type</th>

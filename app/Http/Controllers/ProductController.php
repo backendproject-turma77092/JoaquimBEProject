@@ -5,7 +5,6 @@ use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\provider;
-
 class ProductController extends Controller
 {
 
@@ -16,6 +15,8 @@ class ProductController extends Controller
 
         return view('product.all_product', compact('product'));
     }
+
+
 
     public function AddProduct()
     {
@@ -83,13 +84,6 @@ class ProductController extends Controller
      }
 
 
-     public function search(Request $request)
-{
-    $searchTerm = $request->input('search');
 
-    $products = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
-
-    return view('product.search_results', compact('products', 'searchTerm'));
-}
 }
 

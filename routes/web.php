@@ -43,6 +43,8 @@ Route::post('/create-product', [ProductController::class, 'createProduct'])->nam
 //continue.................
 //.................................
 
+Route::get('/search', 'ProductController@search');
+
 
 
 
