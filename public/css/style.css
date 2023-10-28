@@ -5,3 +5,15 @@ body {
 .navbar-expand-lg {
     background-color: #add8e6 !important;
 }
+
+select option {
+    color: black !important; /* Change 'black' to your desired text color */
+}
+
+select {
+    background-color: #ffffff; /* Change to your desired background color */
+}
+
+select option {
+    background-color: #f0f0f0; /* Change to your desired background color */
+}

@@ -49,4 +49,18 @@ class ProviderController extends Controller
         $provider = Provider::all();
         return $provider;
     }
+
+
+    public function deleteProvider($id){
+
+        $ourUser = Provider::findOrFail($id);
+
+
+        if($ourUser){
+            Provider::where('id', $id)
+            ->Delete();
+            }
+            return redirect()->route('provider.all');
+        }
+
 }

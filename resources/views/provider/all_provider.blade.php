@@ -14,11 +14,12 @@
         @foreach ($provider as $item)
         <tr>
             <th scope="row">{{ $item->id }}</th>
-            <td></td>
+            <td>{{ $item->name }}</td>
             <td>{{ $item->phone }}</td>
             <td>{{ $item->description }}</td>
             <td><a href="{{ route('provider.get', $item->id) }}" class="btn btn-info">Ver</a></td>
-            <td><a href="" class="btn btn-danger">Delete</a></td>
+            <td><a href="{{ route('provider.delete', $item->id) }}" class="btn btn-danger">Delete</a></td>
+
             </tr>
     @endforeach
 

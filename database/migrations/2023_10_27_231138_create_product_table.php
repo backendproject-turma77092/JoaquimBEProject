@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('type');
             $table->string('quantity');
             $table->string('note');
-            $table->unsignedBigInteger('provider_id');
-            $table->foreign('provider_id')->references('id')->on('provider');
             $table->timestamps();
         });
     }
