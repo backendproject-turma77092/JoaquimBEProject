@@ -30,8 +30,6 @@ class UsersController extends Controller
             'ourUser',
         ));
         }
-
-
         public function createUser(Request $request){
 
             if(isset($request->id)){
@@ -40,14 +38,11 @@ class UsersController extends Controller
                     'phone' => 'string',
 
                 ]);
-
                 User::where('id', $request->id)
                     ->update([
                     'name' => $request->name,
                     'phone' => $request->phone,
                 ]);
-
-
                 return redirect()->route('user.all')->with('message','Utilizador atualizado');
 
             }else{
@@ -57,9 +52,6 @@ class UsersController extends Controller
                     'password' => 'required|min:4',
                     'phone' => 'required|string',
                 ]);
-
-
-
                 User::insert([
                     'name' => $request->name,
                     'email' => $request->email,
@@ -68,14 +60,8 @@ class UsersController extends Controller
 
                 ]);
 
-
-
-
                 return redirect()->route('user.all')->with('message','Utilizador criado!');
             }
-
-
-
 
         }
         public function deleteUser($id){
