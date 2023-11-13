@@ -5,14 +5,14 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchasesController;
+
 
 // Pagina de login para o Laravel
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-// dentro da @php dd($variavel)@endphp para ver o erro
 
 // Dashboards
 
@@ -44,33 +44,20 @@ Route::post('/create-product', [ProductController::class, 'createProduct'])->nam
 //.................................
 
 Route::get('/search', 'ProductController@search');
+// routes/web.php
+Route::put('/product/update/{id}', 'App\Http\Controllers\ProductController@update')->name('product.update');
+// purchase
 
+Route::get('/purchases', [PurchasesController::class, 'viewPurchases'])->name('purchases.view');
+// compras
+Route::get('/add-purchase', [PurchasesController::class, 'addPurchaseForm'])->name('purchases.add');
+Route::post('/create-purchase', [PurchasesController::class, 'createPurchase'])->name('purchases.create');
+Route::delete('/purchase/delete/{id}', [PurchasesController::class, 'deletePurchase'])->name('purchases.delete');
+Route::get('/purchase/edit/{id}', [PurchasesController::class, 'editPurchaseForm'])->name('purchases.edit');
+Route::put('/purchase/update/{id}', [PurchasesController::class, 'updatePurchase'])->name('purchases.update');
 
-
-
-
-
-
-
-
-// Produtos
-
-// Stock
-
-Route::get('/inventory', function () {
-    return view('inventory');
-})->name('inventory');
-
-
-// fazer compras e ver compras
-
-Route::get('/add-purchase', function () {
-    return view('add.purchase');
-})->name('purchase.add');
-
-Route::get('/all-purchase', function () {
-    return view('all.purchase');
-})->name('purchase.all');
+Route::get('/products/search', [ProductController::class, 'search'])->name('product.search');
+Route::get('/purchases/search', 'App\Http\Controllers\PurchasesController@search')->name('purchases.search');
 
 // Erro da página que não existe
 

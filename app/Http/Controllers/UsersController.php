@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Hash;
-// public function pode ser usada no web.php route, private não pode
 
 class UsersController extends Controller
 {
@@ -38,15 +37,18 @@ class UsersController extends Controller
             if(isset($request->id)){
                 $request->validate([
                     'name' => 'required|string',
+                    'phone' => 'string',
+
                 ]);
 
                 User::where('id', $request->id)
                     ->update([
                     'name' => $request->name,
+                    'phone' => $request->phone,
                 ]);
 
 
-                return redirect()->route('user.all')->with('atualizacao_message','Utilizador atualizado');
+                return redirect()->route('user.all')->with('message','Utilizador atualizado');
 
             }else{
                 $request->validate([
@@ -54,7 +56,6 @@ class UsersController extends Controller
                     'email' => 'required|email|unique:users',
                     'password' => 'required|min:4',
                     'phone' => 'required|string',
-                    //'password_confirmation' => 'required|confirmed',
                 ]);
 
 
@@ -70,7 +71,7 @@ class UsersController extends Controller
 
 
 
-                return redirect()->route('user.all')->with('message','User updated!');
+                return redirect()->route('user.all')->with('message','Utilizador criado!');
             }
 
 
@@ -86,7 +87,7 @@ class UsersController extends Controller
                 User::where('id', $id)
                 ->Delete();
                 }
-                return redirect()->route('user.all');
+                return redirect()->route('user.all')->with('message','Utilizador apagado!');
             }
 
      protected function getUsers (){

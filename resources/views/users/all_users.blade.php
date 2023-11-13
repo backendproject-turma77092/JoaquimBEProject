@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Customers</h1>
+    <h1>Clientes</h1>
 
 
     @if (session('message'))
@@ -29,8 +29,8 @@
             <th scope="row">{{ $item->id }}</th>
             <td>{{ $item->name }}</td>
             <td>{{ $item->email }}</td>
-            <td><a href="{{ route('user.get', $item->id) }}" class="btn btn-info">Ver</a></td>
-            <td><a href="{{ route('user.delete', $item->id) }}" class="btn btn-danger">Delete</a></td>
+            <td><a href="{{ route('user.get', $item->id) }}" class="btn btn-info">Editar</a></td>
+            <td><a href="{{ route('user.delete', $item->id) }}" class="btn btn-danger">Apagar</a></td>
             </tr>
     @endforeach
     </tbody>

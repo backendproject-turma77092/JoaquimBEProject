@@ -1,21 +1,17 @@
 <?php
 
+// app/Models/Provider.php
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class provider extends Model
+class Provider extends Model
 {
-    use HasFactory;
-    protected $table = 'provider';
+    protected $fillable = ['name', 'email', 'phone', 'description'];
 
-
-
-    protected $fillable = [
-    'name',
-    'description',
-    'phone'
-    ];
-
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'products_providers_relationships', 'provider_id', 'product_id');
+    }
 }

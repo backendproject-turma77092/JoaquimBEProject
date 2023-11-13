@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 
-// public function pode ser usada no web.php route, private não pode
 
 class IndexController extends Controller
 {
@@ -24,7 +23,7 @@ class IndexController extends Controller
 
             $flagInfo = [
                 'name' => 'Pombos e filhos LDA',
-                'address' => 'Port',
+                'address' => 'Porto',
                 'email' => 'PPLDA@flag.pt',
             ];
 

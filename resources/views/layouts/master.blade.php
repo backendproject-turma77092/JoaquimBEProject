@@ -18,7 +18,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary .bg-primary-">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{{ route('home') }}">Dasboard</a>
+          <a class="navbar-brand" href="{{ route('home') }}">Informação</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -28,22 +28,22 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Providers
+                      Fornecedores
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{{ route('provider.add') }}">Add Provider</a></li>
-                      <li><a class="dropdown-item" href="{{ route('provider.all') }}">all Provider</a></li>
+                      <li><a class="dropdown-item" href="{{ route('provider.add') }}">Adicionar Fornecedor</a></li>
+                      <li><a class="dropdown-item" href="{{ route('provider.all') }}">Todos os Fornecedores</a></li>
                     </ul>
                   </li>
 
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Products
+                  Produtos
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ route('product.add') }}">Add Product</a></li>
-                    <li><a class="dropdown-item" href="{{ route('product.all') }}">all Product</a></li>
+                    <li><a class="dropdown-item" href="{{ route('product.add') }}">Adicionar Producto</a></li>
+                    <li><a class="dropdown-item" href="{{ route('product.all') }}">Todos os Productos</a></li>
                 </ul>
               </li>
 
@@ -52,21 +52,23 @@
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Customers
+                  Clientes
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{{ route('user.add') }}">Add customer</a></li>
-                  <li><a class="dropdown-item" href="{{ route('user.all') }}">All customers</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.add') }}">Adicionar Cliente</a></li>
+                  <li><a class="dropdown-item" href="{{ route('user.all') }}">Todos os Clientes</a></li>
                 </ul>
               </li>
 
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-Orders                </a>
+Encomendas                </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="">create order</a></li>
-                  <li><a class="dropdown-item" href="">All Orders</a></li>
+                    <li><a class="dropdown-item" href="{{ route('purchases.add') }}">Criar Encomenda</a></li>
+                    <li><a class="dropdown-item" href="{{ route('purchases.view') }}">Todas as Encomendas</a></li>
+
+
                 </ul>
               </li>
 

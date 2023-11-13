@@ -6,12 +6,19 @@ use Illuminate\Http\Request;
 use App\Models\Provider;
 use Illuminate\Support\Facades\DB;
 
+
 class ProviderController extends Controller
 {
     public function AllProvider()
     {
         $provider = $this->GetAllProvider();
         return view('provider.all_provider', compact('provider'));
+    }
+
+    public function AddProduct()
+    {
+        $providers = Provider::all();
+        return view('product.add_product', compact('providers'));
     }
 
     public function AddProvider()
@@ -30,24 +37,22 @@ class ProviderController extends Controller
         $request->validate([
             'name' => 'required|string',
             'phone' => 'string',
-            'description' => 'string',
+            'description' => 'nullable|string',
         ]);
 
         if ($request->has('id')) {
-
             Provider::where('id', $request->id)->update($request->only(['name', 'phone', 'description']));
-            return redirect()->route('provider.all')->with('atualizacao_message', 'Utilizador atualizado');
+            return redirect()->route('provider.all')->with('message', 'Fornecedor atualizado');
         } else {
-
             Provider::create($request->only(['name', 'phone', 'description']));
-            return redirect()->route('provider.all')->with('message', 'User created!');
+            return redirect()->route('provider.all')->with('message', 'Fornecedor criado!');
         }
     }
 
     protected function GetAllProvider()
     {
-        $provider = Provider::all();
-        return $provider;
+        $providers = Provider::all();
+        return $providers;
     }
 
 
@@ -60,7 +65,7 @@ class ProviderController extends Controller
             Provider::where('id', $id)
             ->Delete();
             }
-            return redirect()->route('provider.all');
+            return redirect()->route('provider.all')->with('message', 'Fornecedor apagado!');
         }
 
 }

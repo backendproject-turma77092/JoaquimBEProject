@@ -2,14 +2,18 @@
 
 
 @section('title')
-    <h2>Change product details</h2>
+    <h2>Mudar os detalhes do produto</h2>
 @endsection
 
 @section('content')
+
 <form method="POST" action="{{ route('product.create') }}">
     <input type="hidden" name="id" value="{{ $ourProduct->id }}">
 
         @csrf
+
+        @isset($ourProduct)
+    <input type="hidden" name="id" value="{{ $ourProduct->id }}">
 
         <div class="container">
         <input type="hidden" name="id" value="{{ $ourProduct->id }}" id="">
@@ -66,4 +70,11 @@
         <button class="btn btn-primary" type="submit">Submeter</button>
     </form>
 </div>
+
+
+@else
+    <p>Product not found.</p>
+@endisset
+
+
 @endsection
