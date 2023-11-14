@@ -59,6 +59,8 @@ Route::put('/purchase/update/{id}', [PurchasesController::class, 'updatePurchase
 Route::get('/products/search', [ProductController::class, 'search'])->name('product.search');
 Route::get('/purchases/search', 'App\Http\Controllers\PurchasesController@search')->name('purchases.search');
 
+
+
 // Erro da página que não existe
 
 Route::fallback(function(){
