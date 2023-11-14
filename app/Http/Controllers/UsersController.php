@@ -64,17 +64,32 @@ class UsersController extends Controller
             }
 
         }
-        public function deleteUser($id){
+        public function deleteUser($id)
+        {
+            DB::beginTransaction();
 
-            $ourUser = User::findOrFail($id);
+            try {
+                $ourUser = User::findOrFail($id);
+
+                if ($ourUser) {
+                    $ourUser->purchases()->delete();
 
 
-            if($ourUser){
-                User::where('id', $id)
-                ->Delete();
+                    $ourUser->delete();
+
+                    DB::commit();
+
+                    return redirect()->route('user.all')->with('message', 'Utilizador apagado!');
                 }
-                return redirect()->route('user.all')->with('message','Utilizador apagado!');
+            } catch (\Exception $e) {
+
+                DB::rollBack();
+
+                return redirect()->route('user.all')->with('error', 'Erro ao excluir o utilizador.');
             }
+
+            return redirect()->route('user.all')->with('error', 'Utilizador não encontrado.');
+        }
 
      protected function getUsers (){
         $users = User::all();

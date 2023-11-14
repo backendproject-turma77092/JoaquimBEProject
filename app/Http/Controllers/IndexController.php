@@ -10,7 +10,7 @@ class IndexController extends Controller
 {
     public function index(){
 
-        $info = $this->getFlagInfo();
+        $info = $this->CompanyInfo();
 
 
         return view('home', compact(
@@ -19,15 +19,15 @@ class IndexController extends Controller
     }
 
 
-    protected function getFlagInfo(){
+    protected function CompanyInfo(){
 
-            $flagInfo = [
+            $InfoCompany = [
                 'name' => 'Pombos e filhos LDA',
                 'address' => 'Porto',
                 'email' => 'PPLDA@flag.pt',
             ];
 
-            return $flagInfo;
+            return $InfoCompany;
 
     }
 

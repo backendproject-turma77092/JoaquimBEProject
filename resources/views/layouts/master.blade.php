@@ -62,8 +62,7 @@
 
 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-Encomendas                </a>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Encomendas </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{ route('purchases.add') }}">Criar Encomenda</a></li>
                     <li><a class="dropdown-item" href="{{ route('purchases.view') }}">Todas as Encomendas</a></li>

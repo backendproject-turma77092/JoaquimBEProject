@@ -25,7 +25,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">quantity</label>
+                <label for="exampleFormControlInput1" class="form-label">quantidade</label>
                 <input type="text" name="quantity" value="{{ $ourProduct->quantity }}" class="form-control" placeholder="Quantity" required>
             </div>
 

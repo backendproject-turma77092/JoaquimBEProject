@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\provider;
 use Illuminate\Support\Facades\Log;
 
+
 class ProductController extends Controller
 {
 
@@ -16,8 +17,6 @@ class ProductController extends Controller
         $products = Product::with('providers')->get();
         return view('product.all_product', compact('products'));
     }
-
-
 
     public function AddProduct()
     {
@@ -77,7 +76,7 @@ class ProductController extends Controller
                 Log::error("Provider with ID {$request->input('provider_id')} not found.");
             }
 
-            return redirect()->route('product.all')->with('message', 'Product atualizado!');
+            return redirect()->route('product.all')->with('message', 'Producto atualizado!');
         } else {
             return redirect()->route('product.all')->with('error', 'Product not found.');
         }
@@ -111,19 +110,35 @@ class ProductController extends Controller
                 Log::error("Provider with ID {$request->input('provider_id')} not found.");
             }
 
-            return redirect()->route('product.all')->with('message', 'Product adicionado!');;
+            return redirect()->route('product.all')->with('message', 'Producto adicionado!');;
         }
-        public function deleteProduct($id){
+        public function deleteProduct($id)
+        {
+            DB::beginTransaction();
 
-            $ourProduct = product::findOrFail($id);
+            try {
+                $ourProduct = Product::findOrFail($id);
+
+                if ($ourProduct) {
+
+                    $ourProduct->purchases()->delete();
 
 
-            if($ourProduct){
-                product::where('id', $id)
-                ->Delete();
+                    $ourProduct->delete();
+
+                    DB::commit();
+
+                    return redirect()->route('product.all')->with('message', 'Produto apagado!');
                 }
-                return redirect()->route('product.all')->with('message', 'Producto apagado!');;
+            } catch (\Exception $e) {
+
+                DB::rollBack();
+
+                return redirect()->route('product.all')->with('error', 'Erro ao excluir o produto.');
             }
+
+            return redirect()->route('product.all')->with('error', 'Produto não encontrado.');
+        }
 
     protected function getProducts (){
         $product = Product::all();
@@ -156,7 +171,7 @@ class ProductController extends Controller
 
         $product->providers()->attach($provider->id);
 
-        return redirect()->route('product.add')->with('message', 'Purchase added successfully!');;
+        return redirect()->route('product.add')->with('message', 'Produto adicionado!');;
      }
 
      public function addPurchase(Request $request)

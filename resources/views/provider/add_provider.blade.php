@@ -8,29 +8,29 @@
     <form method="POST" action="{{ route('provider.create') }}">
         @csrf
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Nome</label>
-            <input type="text" name="name" value="" class="form-control" id="exampleFormControlInput1"
-                placeholder="Nome" required>
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name"
+                placeholder="Digite o nome" required>
             @error('name')
-                <div class="alert alert-danger"> Coloque um nome válido</div>
+                <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">telefone</label>
-            <input type="number" name="phone" value="" class="form-control" id="exampleFormControlInput1"
-                placeholder="Coloque o numero de telefone válido">
+            <label for="phone" class="form-label">Telefone</label>
+            <input type="number" name="phone" value="{{ old('phone') }}" class="form-control" id="phone"
+                placeholder="Digite o número de telefone válido">
             @error('phone')
-                <div class="alert alert-danger"> Coloque um phone válido</div>
+                <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Produtos que fornece</label>
-            <input type="text" name="description" value="" class="form-control" id="exampleFormControlInput1"
-                placeholder="Coloque o tipo de produtos que fornece">
+            <label for="description" class="form-label">Produtos que Fornece</label>
+            <input type="text" name="description" value="{{ old('description') }}" class="form-control" id="description"
+                placeholder="Digite o tipo de produtos que fornece">
             @error('description')
-                <div class="alert alert-danger"> Coloque o tipo de produtos que fornece</div>
+                <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 

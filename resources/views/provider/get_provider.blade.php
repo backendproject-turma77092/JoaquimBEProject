@@ -28,11 +28,11 @@
         </div>
 
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Descrição</label>
+            <label for="exampleFormControlInput1" class="form-label">Produtos</label>
             <input type="text" name="description" value="{{ $ourProvider->description }}" class="form-control"
                 id="exampleFormControlInput1" placeholder="Descrição">
             @error('description')
-                <div class="alert alert-danger">Coloque uma descrição válida</div>
+                <div class="alert alert-danger">Coloque produtos válidos</div>
             @enderror
         </div>
 
