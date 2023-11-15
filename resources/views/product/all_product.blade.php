@@ -15,7 +15,7 @@
     <form action="{{ route('product.search') }}" method="GET" class="mb-4">
         <div class="form-group">
             <label for="search">Procura por produto:</label>
-            <input type="text" name="search" id="search" class="form-control" placeholder="Enter product name">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Coloque o nome do produto">
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
     </form>

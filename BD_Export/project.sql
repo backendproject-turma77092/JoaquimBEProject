@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 13-Nov-2023 às 23:30
+-- Tempo de geração: 15-Nov-2023 às 17:35
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.2.4
 
@@ -132,15 +132,6 @@ CREATE TABLE `products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Extraindo dados da tabela `products`
---
-
-INSERT INTO `products` (`id`, `name`, `price`, `type`, `quantity`, `note`, `created_at`, `updated_at`) VALUES
-(37, 'Candeeiro Led', 11.00, 'Candeeiro LED', 1, 'Candeiros alta qualidade', '2023-11-13 20:19:45', '2023-11-13 20:19:45'),
-(38, 'Lampadas', 20.00, 'luzs', 11, 'Lampadas comuns', '2023-11-13 20:20:13', '2023-11-13 21:33:29'),
-(39, 'asdasdasd', 1.00, '1', 1, '1', '2023-11-13 21:27:54', '2023-11-13 21:27:54');
-
 -- --------------------------------------------------------
 
 --
@@ -154,15 +145,6 @@ CREATE TABLE `products_providers_relationships` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Extraindo dados da tabela `products_providers_relationships`
---
-
-INSERT INTO `products_providers_relationships` (`id`, `provider_id`, `product_id`, `created_at`, `updated_at`) VALUES
-(22, 12, 39, NULL, NULL),
-(23, 11, 38, NULL, NULL),
-(26, 11, 37, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -179,15 +161,6 @@ CREATE TABLE `providers` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Extraindo dados da tabela `providers`
---
-
-INSERT INTO `providers` (`id`, `name`, `description`, `phone`, `created_at`, `updated_at`) VALUES
-(11, 'LuzesdeNatal', 'Luzes de natal e luzes led e muito mais', '934321234', '2023-11-13 20:17:40', '2023-11-13 21:26:27'),
-(12, 'led LDA', 'Luzes led', '932345224', '2023-11-13 20:18:27', '2023-11-13 20:18:27'),
-(13, 'Candeeiros', 'candeeiros', '934212344', '2023-11-13 20:19:13', '2023-11-13 21:28:06');
-
 -- --------------------------------------------------------
 
 --
@@ -203,20 +176,6 @@ CREATE TABLE `purchases` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `quantity` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Extraindo dados da tabela `purchases`
---
-
-INSERT INTO `purchases` (`id`, `user_id`, `product_id`, `status`, `created_at`, `updated_at`, `quantity`) VALUES
-(20, 6, 37, 'pending', '2023-11-13 20:20:35', '2023-11-13 22:29:37', 11),
-(22, 14, 38, 'pending', '2023-11-13 21:38:04', '2023-11-13 21:38:04', 1),
-(23, 6, 37, 'pending', '2023-11-13 22:06:24', '2023-11-13 22:28:11', 12),
-(24, 6, 37, 'pending', '2023-11-13 22:10:54', '2023-11-13 22:29:32', 2),
-(25, 7, 37, 'pending', '2023-11-13 22:15:39', '2023-11-13 22:15:39', 1),
-(26, 6, 37, 'pending', '2023-11-13 22:15:47', '2023-11-13 22:15:47', 1),
-(27, 6, 37, 'pending', '2023-11-13 22:20:27', '2023-11-13 22:20:27', 1),
-(29, 6, 37, 'pending', '2023-11-13 22:23:52', '2023-11-13 22:28:07', 12);
 
 -- --------------------------------------------------------
 
@@ -237,15 +196,6 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Extraindo dados da tabela `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone`, `address`, `company`, `remember_token`, `created_at`, `updated_at`) VALUES
-(6, 'Rui Gomes', 'rui@gmail.com', NULL, '$2y$10$33D9LrGhrJzI.iME7M70B.oftBzOzSiucMN/kBVNIqQZFSjy2i6Ua', '9323232sss', NULL, NULL, NULL, NULL, '2023-11-13 20:39:22'),
-(7, 'Lucinda', 'lucinda@icloud.com', NULL, '$2y$10$muJ54dto.3to7XcpIJzFuu2KgHJar/JNIkNXC6HpJ0Gig0xnV.fmW', '934554455233332232', NULL, NULL, NULL, NULL, '2023-11-13 20:55:45'),
-(14, 'Joaquim Vicente', 'admin@mail.com', NULL, '$2y$10$amxc.IVUqEEA2.5bAftkGOiNo95d4EV8fyaKYs0y6sMREZQcO3lIe', '935048990', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -352,31 +302,31 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT de tabela `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de tabela `products_providers_relationships`
 --
 ALTER TABLE `products_providers_relationships`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de tabela `providers`
 --
 ALTER TABLE `providers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de tabela `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restrições para despejos de tabelas

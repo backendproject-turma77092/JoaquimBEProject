@@ -43,6 +43,10 @@
                         <td>{{ $purchase->quantity }}</td>
 
                         <td>
+                            <a href="{{ route('purchases.edit', ['id' => $purchase->id]) }}" class="btn btn-primary">Editar</a>
+                        </td>
+
+                        <td>
                             <form method="POST" action="{{ route('purchases.delete', ['id' => $purchase->id]) }}">
                                 @csrf
                                 @method('DELETE')
@@ -50,9 +54,6 @@
                             </form>
                         </td>
 
-                        <td>
-                            <a href="{{ route('purchases.edit', ['id' => $purchase->id]) }}" class="btn btn-primary">Editar</a>
-                        </td>
                     </tr>
                 @endforeach
             </tbody>
